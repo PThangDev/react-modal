@@ -27,6 +27,7 @@ const ModalJSX = ({
           className={overlayClassName}
           closeWhenPressEsc={closeWhenPressEsc}
           onClick={() => (closeWhenClickOnOverlay ? onClose() : null)}
+          onEscape={() => (closeWhenPressEsc ? onClose() : null)}
         >
           {/* Prevent clicks on modal from bubbling to backdrop */}
           <motion.div

@@ -7,12 +7,13 @@ const Backdrop = ({
   closeWhenPressEsc = true,
   style = {},
   onClick,
+  onEscape,
 }) => {
   useEffect(() => {
     if (closeWhenPressEsc) {
       const handleKeyDown = (e) => {
         if (e.keyCode === 27) {
-          onClick();
+          onEscape();
         }
       };
       document.addEventListener("keydown", handleKeyDown);
@@ -20,7 +21,7 @@ const Backdrop = ({
         document.removeEventListener("keydown", handleKeyDown);
       };
     }
-  }, [closeWhenPressEsc, onClick]);
+  }, [closeWhenPressEsc, onClick, onEscape]);
   return (
     <motion.div
       initial={{ opacity: 0 }}
